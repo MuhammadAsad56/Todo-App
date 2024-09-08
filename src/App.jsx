@@ -8,11 +8,11 @@ function App() {
   const [todo, setTodo] = useState("")
   const [filterTodos, setFilterTodos] = useState("All")
   const [todos, setTodos] = useState([])
-  
+
   const handleAddTodo = useCallback(() => {
-    setTodos([...todos,{todo, isCompleted: false, id: Date.now()}])
+    setTodos([...todos, { todo, isCompleted: false, id: Date.now() }])
     setTodo("")
-  },[todo])
+  }, [todo])
 
   const handleOnToggleTodo = (id) => {
     const todosArr = [...todos]
@@ -22,13 +22,13 @@ function App() {
   }
 
   const filteredTodos = todos.filter(data => {
-    if(filterTodos == "All"){
+    if (filterTodos == "All") {
       return true
     }
-    if(filterTodos == "Completd"  && data.isCompleted){
+    if (filterTodos == "Completd" && data.isCompleted) {
       return true
     }
-    if(filterTodos == "Uncompletd"  && !data.isCompleted){
+    if (filterTodos == "Uncompletd" && !data.isCompleted) {
       return true
     }
   })
@@ -37,7 +37,7 @@ function App() {
     <>
       <div className='parent-container w-full sm:w-1/2 md:w-1/3 mx-auto flex align-center flex-col gap-5 shadow-2xl border min-h-screen'>
         <h1 className='text-2xl sm:text-3xl border-b font-bold text-center p-5 text-gray-200 '>Todo App</h1>
-        <TodoInput onClick={handleAddTodo} todoValue={todo} onChange={(e)=> setTodo(e.target.value)} />
+        <TodoInput onClick={handleAddTodo} todoValue={todo} onChange={(e) => setTodo(e.target.value)} />
         <FilterButton setFilterTodos={setFilterTodos} filterTodos={filterTodos} />
         <div>
           <TodoList onToggle={handleOnToggleTodo} todos={filteredTodos} setTodos={setTodos} />
@@ -45,19 +45,6 @@ function App() {
       </div>
     </>
   )
-
-  // return (
-  //   <>
-  //     <div className='parent-container w-1/3 mx-auto flex align-center flex-col gap-5 shadow-2xl border  mt-1 min-h-screen'>
-  //       <h1 className='text-3xl border-b font-bold text-center p-5 text-gray-200 '>Todo App</h1>
-  //       <TodoInput onClick={handleAddTodo} todoValue={todo} onChange={(e)=> setTodo(e.target.value)}/>
-  //         <FilterButton setFilterTodos={setFilterTodos} filterTodos={filterTodos}/>
-  //       <div>
-  //         <TodoList  onToggle={handleOnToggleTodo} todos={filteredTodos} setTodos={setTodos}/>
-  //       </div>
-  //     </div>
-  //   </>
-  // )
 }
 
 export default App
