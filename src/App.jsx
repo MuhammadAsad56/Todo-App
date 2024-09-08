@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-      <div className='parent-container w-full sm:w-1/2 md:w-1/3 mx-auto flex align-center flex-col gap-5 shadow-2xl border mt-1 min-h-screen'>
+      <div className='parent-container w-full sm:w-1/2 md:w-1/3 mx-auto flex align-center flex-col gap-5 shadow-2xl border min-h-screen'>
         <h1 className='text-2xl sm:text-3xl border-b font-bold text-center p-5 text-gray-200 '>Todo App</h1>
         <TodoInput onClick={handleAddTodo} todoValue={todo} onChange={(e)=> setTodo(e.target.value)} />
         <FilterButton setFilterTodos={setFilterTodos} filterTodos={filterTodos} />
