@@ -1,0 +1,13 @@
+body{
+    /* margin: 0; */
+    background: rgb(167,164,164);
+    background: linear-gradient(90deg, rgba(167,164,164,1) 51%, rgba(108,108,108,1) 100%);
+    background-attachment: fixed;
+}
+
+/* @media only screen and (max-width:460px){
+     .parent-container{
+        /* width: 1/2; */
+        /* background-color: red; */
+     /* } */
+    /* } */
